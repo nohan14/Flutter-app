@@ -29,6 +29,9 @@ class _MylistState extends State<Mylist> {
   List<Item> itemList = [];
 
 
+
+
+
   @override
   Widget build(BuildContext context) {
 
@@ -57,7 +60,10 @@ class _MylistState extends State<Mylist> {
 
 
 
+
     return Scaffold(
+
+
 
       floatingActionButton: FloatingActionButton(
 
@@ -79,7 +85,8 @@ class _MylistState extends State<Mylist> {
 
       ),
       backgroundColor: Colors.blueGrey.shade900,
-      bottomNavigationBar: Text('Add items here',
+
+      bottomNavigationBar: Text('  Add items..  ',
       textAlign: TextAlign.right,
       style: TextStyle(
         fontSize: 18,
@@ -89,8 +96,12 @@ class _MylistState extends State<Mylist> {
       ),),
       body: Container(
 
+
         height: MediaQuery.of(context).size.height *0.75,
+
+
         child: ListView.builder(itemBuilder: (ctx,index){return Card(
+
           color: Colors.blueGrey.shade700,
           margin: EdgeInsets.all(4),
           elevation: 8,
@@ -101,9 +112,19 @@ class _MylistState extends State<Mylist> {
                 color: Colors.white,
                 fontWeight: FontWeight.w400
             ),) ,
+            trailing: new IconButton(icon: new Icon(Icons.delete),
+                onPressed: (){
+              setState(() {
+                itemList.removeAt(index);
+              });
+
+
+                }
+            ),
 
           ),);},
           itemCount: itemList.length,
+
         ),
       ),
     );
